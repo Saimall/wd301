@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color:#EDE9D5;
+body {
+  background-color: #ede9d5;
 }
-.status{
-   background-color: #E7AB9A;
+.status {
+  background-color: #e7ab9a;
 }
