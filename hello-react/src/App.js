@@ -6,13 +6,13 @@ function App() {
       <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
       <h2 class="font-bold mb-2">
         Project:{" "}
-        <span class="text-gray-600">
+        <span className="text-gray-600">
           Graduation Final Year Project(Revamp College Website)
         </span>
       </h2>
-      <div class="flex justify-between">
-        <div class="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
-          <h3 class="text-xl font-bold mb-2">Pending</h3>
+      <div className="flex justify-between">
+        <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h3 className="text-xl font-bold mb-2">Pending</h3>
           <TaskCard
             title="Build the Website with static content"
             dueDate="2013-03-19"
@@ -26,7 +26,7 @@ function App() {
             assigneeName="Rohit M"
           />
 
-          <button class="bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
+          <button className="bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -43,8 +43,8 @@ function App() {
           </button>
         </div>
 
-        <div class="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
-          <h1 class="text-xl font-bold mb-2">Done</h1>
+        <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h1 className="text-xl font-bold mb-2">Done</h1>
           <TaskCard
             title="Design the mockup "
             dueDate="2023-03-19"
