@@ -1,7 +1,8 @@
 import "./TaskCard.css";
+import React from "react";
 
 const TaskCard = (props) => {
-  const months = [
+  let months:string[] = [
     "January",
     "February",
     "March",

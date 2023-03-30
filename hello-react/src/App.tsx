@@ -1,10 +1,13 @@
 import TaskCard from "./TaskCard";
+import React from "react";
+import items from "./main";
 
 function App() {
   return (
+    
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
-      <h2 class="font-bold mb-2">
+      <h2 className="font-bold mb-2">
         Project:{" "}
         <span className="text-gray-600">
           Graduation Final Year Project(Revamp College Website)
@@ -14,16 +17,15 @@ function App() {
         <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
           <h3 className="text-xl font-bold mb-2">Pending</h3>
           <TaskCard
-            title="Build the Website with static content"
-            dueDate="2013-03-19"
-            completedAtDate="2023-03-20"
-            assigneeName="Rohit S"
+           {...items("Build the Website with static content",
+          "2013-03-19",
+          "2023-03-20",
+           "Rohit S")}
           />
           <TaskCard
-            title="Add Blog"
-            dueDate="2023-03-19"
-            completedAtDate="2023-03-20"
-            assigneeName="Rohit M"
+          {... items("Add Blog","2023-03-19","2023-03-20","Rohit M")
+
+          }
           />
 
           <button className="bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
@@ -31,7 +33,7 @@ function App() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              class="inline-block h-4 w-4 align-text-bottom mr-2"
+              className="inline-block h-4 w-4 align-text-bottom mr-2"
             >
               <path
                 fill-rule="evenodd"
@@ -46,21 +48,22 @@ function App() {
         <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
           <h1 className="text-xl font-bold mb-2">Done</h1>
           <TaskCard
-            title="Design the mockup "
-            dueDate="2023-03-19"
-            completedAtDate="2023-03-18"
-            assigneeName="Rohit M"
+           {... items("Design the mockup","2023-03-19","2023-03-18","Rohit M")
+
+        }
           />
           <TaskCard
-            title="Get approval from principal"
-            dueDate="2023-03-19"
-            completedAtDate="2023-03-18"
-            assigneeName="Ajay S"
+           {... items("Get Approval from principal","2023-03-19","2023-03-18","Ajay S")
+
+           }
+
           />
         </div>
       </div>
     </div>
   );
+
+
 }
 
 export default App;
