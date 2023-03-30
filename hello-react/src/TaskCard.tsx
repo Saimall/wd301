@@ -39,10 +39,10 @@ const TaskCard = (props) => {
   
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem">
+    <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
       <h2 className="font-bold mb-2">{props.title}</h2>
-      <p className="text-gray-600 mb-2">{status}</p>
-      <p className="text-gray-600 mb-2">
+      <p className="text-gray-800 mb-2">{status}</p>
+      <p className="text-gray-800 mb-2">
         <span className="font-bold">Assignee: </span>
         {props.assigneeName}
       </p>
