@@ -2,7 +2,7 @@ import "./TaskCard.css";
 import React from "react";
 
 const TaskCard = (props) => {
-  let months:string[] = [
+  let months: string[] = [
     "January",
     "February",
     "March",
@@ -36,7 +36,6 @@ const TaskCard = (props) => {
   } else {
     status = "Due on: " + duedatenumber + "th" + months[duemonthnumber];
   }
-  
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">

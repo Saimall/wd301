@@ -4,7 +4,6 @@ import items from "./main";
 
 function App() {
   return (
-    
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
       <h2 className="font-bold mb-2">
@@ -17,15 +16,15 @@ function App() {
         <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
           <h3 className="text-xl font-bold mb-2">Pending</h3>
           <TaskCard
-           {...items("Build the Website with static content",
-          "2013-03-19",
-          "2023-03-20",
-           "Rohit S")}
+            {...items(
+              "Build the Website with static content",
+              "2013-03-19",
+              "2023-03-20",
+              "Rohit S"
+            )}
           />
           <TaskCard
-          {... items("Add Blog","2023-03-19","2023-03-20","Rohit M")
-
-          }
+            {...items("Add Blog", "2023-03-19", "2023-03-20", "Rohit M")}
           />
 
           <button className="bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
@@ -48,22 +47,25 @@ function App() {
         <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
           <h1 className="text-xl font-bold mb-2">Done</h1>
           <TaskCard
-           {... items("Design the mockup","2023-03-19","2023-03-18","Rohit M")
-
-        }
+            {...items(
+              "Design the mockup",
+              "2023-03-19",
+              "2023-03-18",
+              "Rohit M"
+            )}
           />
           <TaskCard
-           {... items("Get Approval from principal","2023-03-19","2023-03-18","Ajay S")
-
-           }
-
+            {...items(
+              "Get Approval from principal",
+              "2023-03-19",
+              "2023-03-18",
+              "Ajay S"
+            )}
           />
         </div>
       </div>
     </div>
   );
-
-
 }
 
 export default App;
