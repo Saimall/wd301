@@ -1,8 +1,41 @@
 import TaskCard from "./TaskCard";
 import React from "react";
-import { dueitems, completeditems } from "./main";
+// import { dueitems, completeditems } from "./main";
 
 function App() {
+  interface duelist {
+    title: string;
+    dueDate: string;
+    assigneeName: string;
+  }
+  
+  interface completedlist {
+    title: string;
+    completedAtDate: string;
+    assigneeName: string;
+  }
+  
+  const dueitems = (title: string, dueDate: string, assigneeName: string) => {
+    let duelist: duelist = {
+      title: title,
+      dueDate: dueDate,
+      assigneeName: assigneeName,
+    };
+    return duelist;
+  };
+  
+  const completeditems = (
+    title: string,
+    completedAtDate: string,
+    assigneeName: string
+  ) => {
+    let completedlist: completedlist = {
+      title: title,
+      completedAtDate: completedAtDate,
+      assigneeName: assigneeName,
+    };
+    return completedlist;
+  };
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
