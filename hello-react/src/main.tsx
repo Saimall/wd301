@@ -1,23 +1,41 @@
-interface itemslist {
+interface duelist {
   title: string;
   dueDate: string;
+  assigneeName: string;
+}
+
+interface completedlist {
+  title: string;
   completedAtDate: string;
   assigneeName: string;
 }
 
-const items = (
+const dueitems = (
   title: string,
   dueDate: string,
+  assigneeName: string
+) => {
+  let list: duelist = {
+    title: title,
+    dueDate: dueDate,
+    assigneeName: assigneeName,
+  };
+  return list;
+};
+
+const completeditems = (
+  title: string,
   completedAtDate: string,
   assigneeName: string
 ) => {
-  let list: itemslist = {
+  let list: completedlist = {
     title: title,
-    dueDate: dueDate,
     completedAtDate: completedAtDate,
     assigneeName: assigneeName,
   };
   return list;
 };
 
-export default items;
+
+
+export  {dueitems,completeditems};
