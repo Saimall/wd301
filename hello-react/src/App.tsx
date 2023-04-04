@@ -18,11 +18,11 @@ function App() {
           <TaskCard
             {...dueitems(
               "Build the Website with static content",
-              "2013-03-19",
+              "19th April",
               "Rohit S"
             )}
           />
-          <TaskCard {...dueitems("Add Blog", "2023-03-19", "Rohit M")} />
+          <TaskCard {...dueitems("Add Blog", "19th April", "Rohit M")} />
 
           <button className="bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
             <svg
@@ -44,12 +44,12 @@ function App() {
         <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
           <h1 className="text-xl font-bold mb-2">Done</h1>
           <TaskCard
-            {...completeditems("Design the mockup", "2023-03-19", "Rohit M")}
+            {...completeditems("Design the mockup", "20th April", "Rohit M")}
           />
           <TaskCard
             {...completeditems(
               "Get Approval from principal",
-              "2023-03-19",
+              "20th April",
               "Ajay S"
             )}
           />
