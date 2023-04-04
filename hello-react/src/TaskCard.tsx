@@ -16,21 +16,21 @@ const TaskCard = (props) => {
     "November",
     "December",
   ];
-  var duedate = new Date(props.dueDate);
-  console.log(duedate);
-  const duedatenumber = duedate.getDate();
-  const duemonthnumber = duedate.getMonth();
-
-  var completeddate = new Date(props.completedAtDate);
+  
+  if (props.completedAtDate) {
+    var completeddate = new Date(props.completedAtDate);
   const completedatenumber = completeddate.getDate();
   const completemonthnumber = completeddate.getMonth();
-  if (props.completedAtDate) {
     var status =
       "Completed on: " +
       completedatenumber +
       "th" +
       months[completemonthnumber];
   } else {
+    var duedate = new Date(props.dueDate);
+  console.log(duedate);
+  const duedatenumber = duedate.getDate();
+  const duemonthnumber = duedate.getMonth();
     status = "Due on: " + duedatenumber + "th" + months[duemonthnumber];
   }
 
