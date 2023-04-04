@@ -16,7 +16,7 @@ const TaskCard = (props) => {
   //   "November",
   //   "December",
   // ];
-  
+
   // if (props.completedAtDate) {
   //   var completeddate = new Date(props.completedAtDate);
   // const completedatenumber = completeddate.getDate();
@@ -33,23 +33,30 @@ const TaskCard = (props) => {
   // const duemonthnumber = duedate.getMonth();
   //   status = "Due on: " + duedatenumber + "th" + months[duemonthnumber];
   // }
-if(props.completedAtDate){
-  return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
-      <h2 className="font-bold mb-2">{props.title}</h2>
-      <p className="text-gray-800 mb-2"> <span className="font-bold">Completed on: </span>{props.completedAtDate}</p>
-      <p className="text-gray-800 mb-2">
-        <span className="font-bold">Assignee: </span>
-        {props.assigneeName}
-      </p>
-    </div>
-  );
-}
-  else{
+  if (props.completedAtDate) {
     return (
       <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
         <h2 className="font-bold mb-2">{props.title}</h2>
-        <p className="text-gray-800 mb-2"> <span className="font-bold">Due on: </span>{props.dueDate}</p>
+        <p className="text-gray-800 mb-2">
+          {" "}
+          <span className="font-bold">Completed on: </span>
+          {props.completedAtDate}
+        </p>
+        <p className="text-gray-800 mb-2">
+          <span className="font-bold">Assignee: </span>
+          {props.assigneeName}
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
+        <h2 className="font-bold mb-2">{props.title}</h2>
+        <p className="text-gray-800 mb-2">
+          {" "}
+          <span className="font-bold">Due on: </span>
+          {props.dueDate}
+        </p>
         <p className="text-gray-800 mb-2">
           <span className="font-bold">Assignee: </span>
           {props.assigneeName}
@@ -57,6 +64,5 @@ if(props.completedAtDate){
       </div>
     );
   }
-
 };
 export default TaskCard;
