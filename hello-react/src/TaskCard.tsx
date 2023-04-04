@@ -24,9 +24,7 @@ const TaskCard = (props) => {
   var completeddate = new Date(props.completedAtDate);
   const completedatenumber = completeddate.getDate();
   const completemonthnumber = completeddate.getMonth();
-  if (
-    props.completedAtDate
-  ) {
+  if (props.completedAtDate) {
     var status =
       "Completed on: " +
       completedatenumber +

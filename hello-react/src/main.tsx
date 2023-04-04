@@ -10,17 +10,13 @@ interface completedlist {
   assigneeName: string;
 }
 
-const dueitems = (
-  title: string,
-  dueDate: string,
-  assigneeName: string
-) => {
-  let list: duelist = {
+const dueitems = (title: string, dueDate: string, assigneeName: string) => {
+  let duelist: duelist = {
     title: title,
     dueDate: dueDate,
     assigneeName: assigneeName,
   };
-  return list;
+  return duelist;
 };
 
 const completeditems = (
@@ -28,14 +24,12 @@ const completeditems = (
   completedAtDate: string,
   assigneeName: string
 ) => {
-  let list: completedlist = {
+  let completedlist: completedlist = {
     title: title,
     completedAtDate: completedAtDate,
     assigneeName: assigneeName,
   };
-  return list;
+  return completedlist;
 };
 
-
-
-export  {dueitems,completeditems};
+export { dueitems, completeditems };
