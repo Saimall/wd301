@@ -34,13 +34,15 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
           Graduation Final Year Project(Revamp College Website)
         </span>
       </h2>
+       <b><em>Enter New Task</em></b>
+      <TaskForm addTask={this.addTask} />
       <div className="flex justify-between">
         <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
           <h3 className="text-xl font-bold mb-2">Pending</h3>
         <TaskList tasks={this.state.tasks} />
 
         <div>
-        <TaskForm addTask={this.addTask} />
+        
         </div>
         </div>
 

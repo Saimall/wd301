@@ -48,7 +48,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState>{
     render(){
         return(
             <div className="w-full max-w-md mx-auto">
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={this.addTask}>
+            <form className="bg-white shadow-md rounded px-4 pt-3 pb-4 mb-2" onSubmit={this.addTask}>
               <div className="mb-4">
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="todoTitle" value={this.state.title} type="text" placeholder="Enter a title" onChange={this.titlechanged} required/>
               </div>
@@ -72,7 +72,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState>{
                 clip-rule="evenodd"
               />
             </svg>
-            New Task
+            Add
           </button>
               </div>
             </form>
