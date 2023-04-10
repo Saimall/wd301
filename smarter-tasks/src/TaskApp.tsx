@@ -16,36 +16,43 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
         tasks: [],
       };
     }
-    addTask = (task: TaskItem) => {
+    addTask = (tasks: TaskItem) => {
         this.setState((state, props) => {
           return {
-            tasks: [...state.tasks, task],
+            tasks:[...state.tasks, tasks],
           };
         });
       };
 
     render() {
-        return <div>
-     <div className="container py-10 max-w-4xl mx-auto">
-        <h1 className="text-3xl mb-2 font-bold text-slate-700">
-          Smarter Tasks
-        </h1>
-        <h1 className="text-md mb-6 text-slate-600">
-          <span className="font-bold">Project: </span>
-          Graduation Final Year Project (Revamp college website)
-        </h1>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="border border-slate-200 rounded-xl p-4">
-            <h1 className="text-slate-500 font-bold text-center mb-2">
-              Pending
-            </h1>
-            <TaskForm addTask={this.addTask} />
-            <TaskList tasks={this.state.tasks} />
-          </div>
+        return(
+           <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
+      <h2 className="font-bold mb-2">
+        Project:{" "}
+        <span className="text-gray-600">
+          Graduation Final Year Project(Revamp College Website)
+        </span>
+      </h2>
+      <div className="flex justify-between">
+        <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h3 className="text-xl font-bold mb-2">Pending</h3>
+        <TaskList tasks={this.state.tasks} />
+
+        <div>
+        <TaskForm addTask={this.addTask} />
+        </div>
+        </div>
+
+        <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h1 className="text-xl font-bold mb-2">Done</h1>
+        
         </div>
       </div>
-        </div>
-      }
+    </div>
+        )
+
+}
 }
 
 export default TaskApp;
