@@ -1,7 +1,7 @@
 import React from "react";
 import { TaskItem } from "./types";
 
-import TaskFormFC from "./TaskFormFC";
+import TaskForm from "./TaskForm"
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
@@ -112,7 +112,7 @@ const TaskApp = (props: TaskAppProp) => {
       <b>
         <em>Enter New Task</em>
       </b>
-      <TaskFormFC addTask={addTask} />
+      <TaskForm addTask={addTask} />
       <div className="flex justify-between">
         <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
           <h3 className="text-xl font-bold mb-2">Pending</h3>
