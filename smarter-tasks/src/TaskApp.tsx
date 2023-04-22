@@ -3,6 +3,7 @@ import { TaskItem } from "./types";
 
 import TaskFormFC from "./TaskFormFC";
 import TaskList from "./TaskList";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 interface TaskAppProp {}
 interface TaskAppState {
@@ -60,24 +61,33 @@ interface TaskAppState {
 
 const TaskApp=(props:TaskAppProp)=>{
 
-  const [taskAppState,setTaskAppState]= React.useState<TaskAppState>({
+  const [taskAppState,setTaskAppState]= useLocalStorage<TaskAppState>("tasks",{
     tasks:[],
   })
 
   const addTask = (task: TaskItem) => {
     setTaskAppState({
         tasks:[...taskAppState.tasks, task]});
+  
   };
 
-  React.useEffect(()=>{
-    const id = setTimeout(() => {
-      console.log(`Saved ${taskAppState.tasks.length} items to backend...`);
-    }, 5000);
-    //first this return function will exute and clears exiting calls and new id with new call or stetimeoout will be created
-    return () => {
-      console.log("clear or cancel any existing network call");
-      clearTimeout(id);
-    };
+  const deleteTask = (key: number)=>{
+    const updateditems = taskAppState.tasks.filter((task)=>{
+      return key!== task.id
+    })
+    setTaskAppState({
+      tasks:updateditems});
+  }
+
+  // React.useEffect(()=>{
+  //   const id = setTimeout(() => {
+  //     console.log(`Saved ${taskAppState.tasks.length} items to backend...`);
+  //   }, 5000);
+  //   //first this return function will exute and clears exiting calls and new id with new call or stetimeoout will be created
+  //   return () => {
+  //     console.log("clear or cancel any existing network call");
+  //     clearTimeout(id);
+  //   };
     // const saveTasks = async () => {
     //   const token = await saveTasksToBackend(taskAppState.tasks);
     // }
@@ -86,7 +96,7 @@ const TaskApp=(props:TaskAppProp)=>{
     //   cancelAPI(token);
     // };
     
-  },[taskAppState.tasks])
+  // },[taskAppState.tasks])
 
   return(
     <div className="container mx-auto p-4">
@@ -102,11 +112,7 @@ const TaskApp=(props:TaskAppProp)=>{
 <div className="flex justify-between">
  <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
    <h3 className="text-xl font-bold mb-2">Pending</h3>
- <TaskList tasks={taskAppState.tasks} />
-
- <div>
- 
- </div>
+ <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
  </div>
  <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
    <h1 className="text-xl font-bold mb-2">Done</h1>
@@ -121,3 +127,4 @@ const TaskApp=(props:TaskAppProp)=>{
 }
 
 export default TaskApp;
+
