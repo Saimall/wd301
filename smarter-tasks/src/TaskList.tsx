@@ -1,17 +1,14 @@
-import React from 'react';
-import Task from './Task';
+import React from "react";
+import Task from "./Task";
 import { TaskItem } from "./types";
 
-interface Props{
-  tasks:TaskItem[];
+interface Props {
+  tasks: TaskItem[];
   deleteTask: (id: number) => void;
 }
 // interface State{
 
 // }
-
-
-
 
 // class TaskList extends React.Component<Props,State>{
 
@@ -22,13 +19,18 @@ interface Props{
 //         }
 // }
 
-const TaskList =(props:Props)=>{
- const List= (props.tasks.map((task,idx) => (
-    <Task id={task.id} title={task.title} description={task.description} dueDate={task.dueDate} deleteTask={props.deleteTask}  />
-  )))
+const TaskList = (props: Props) => {
+  const List = props.tasks.map((task, idx) => (
+    <Task
+      id={task.id}
+      title={task.title}
+      description={task.description}
+      dueDate={task.dueDate}
+      deleteTask={props.deleteTask}
+    />
+  ));
 
   return <>{List}</>;
-}
+};
 
-   
 export default TaskList;

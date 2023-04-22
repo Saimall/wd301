@@ -17,7 +17,7 @@ interface TaskAppState {
 //         tasks: [],
 //       };
 //     }
-    
+
 //     addTask = (task: TaskItem) => {
 //         this.setState((state, props) => {
 //           return {
@@ -44,12 +44,12 @@ interface TaskAppState {
 //         <TaskList tasks={this.state.tasks} />
 
 //         <div>
-        
+
 //         </div>
 //         </div>
 //         <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
 //           <h1 className="text-xl font-bold mb-2">Done</h1>
-        
+
 //         </div>
 //       </div>
 //     </div>
@@ -58,26 +58,28 @@ interface TaskAppState {
 // }
 // }
 
-
-const TaskApp=(props:TaskAppProp)=>{
-
-  const [taskAppState,setTaskAppState]= useLocalStorage<TaskAppState>("tasks",{
-    tasks:[],
-  })
+const TaskApp = (props: TaskAppProp) => {
+  const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>(
+    "tasks",
+    {
+      tasks: [],
+    }
+  );
 
   const addTask = (task: TaskItem) => {
     setTaskAppState({
-        tasks:[...taskAppState.tasks, task]});
-  
+      tasks: [...taskAppState.tasks, task],
+    });
   };
 
-  const deleteTask = (key: number)=>{
-    const updateditems = taskAppState.tasks.filter((task)=>{
-      return key!== task.id
-    })
+  const deleteTask = (key: number) => {
+    const updateditems = taskAppState.tasks.filter((task) => {
+      return key !== task.id;
+    });
     setTaskAppState({
-      tasks:updateditems});
-  }
+      tasks: updateditems,
+    });
+  };
 
   // React.useEffect(()=>{
   //   const id = setTimeout(() => {
@@ -88,43 +90,40 @@ const TaskApp=(props:TaskAppProp)=>{
   //     console.log("clear or cancel any existing network call");
   //     clearTimeout(id);
   //   };
-    // const saveTasks = async () => {
-    //   const token = await saveTasksToBackend(taskAppState.tasks);
-    // }
-    // saveTasks();
-    // return () => {
-    //   cancelAPI(token);
-    // };
-    
+  // const saveTasks = async () => {
+  //   const token = await saveTasksToBackend(taskAppState.tasks);
+  // }
+  // saveTasks();
+  // return () => {
+  //   cancelAPI(token);
+  // };
+
   // },[taskAppState.tasks])
 
-  return(
+  return (
     <div className="container mx-auto p-4">
-<h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
-<h2 className="font-bold mb-2">
- Project:{" "}
- <span className="text-gray-600">
-   Graduation Final Year Project(Revamp College Website)
- </span>
-</h2>
-<b><em>Enter New Task</em></b>
-<TaskFormFC addTask={addTask} />
-<div className="flex justify-between">
- <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
-   <h3 className="text-xl font-bold mb-2">Pending</h3>
- <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
- </div>
- <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
-   <h1 className="text-xl font-bold mb-2">Done</h1>
- 
- </div>
-</div>
-</div>
- )
-
-
-
-}
+      <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
+      <h2 className="font-bold mb-2">
+        Project:{" "}
+        <span className="text-gray-600">
+          Graduation Final Year Project(Revamp College Website)
+        </span>
+      </h2>
+      <b>
+        <em>Enter New Task</em>
+      </b>
+      <TaskFormFC addTask={addTask} />
+      <div className="flex justify-between">
+        <div className="w-1/2 mr-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h3 className="text-xl font-bold mb-2">Pending</h3>
+          <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
+        </div>
+        <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
+          <h1 className="text-xl font-bold mb-2">Done</h1>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default TaskApp;
-
