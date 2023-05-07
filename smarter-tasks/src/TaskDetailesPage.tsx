@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { TaskItem } from "./types";
 import { useLocalStorage } from './hooks/useLocalStorage';
 import "./TaskCard.css";
+import Header from "./Header";
 
 interface TaskDetailsPageParams extends Record<string, string> {
   id: string;
@@ -24,6 +25,8 @@ const TaskDetailsPage: React.FC = () => {
   /* as task and description and date may be undefined so we use task?.title , task?.date ,task?.description to specify that*/
   return (
     <div>
+      <Header/>
+    <div>
       <div className='mt-2 mb-2 font-bold-800'>
       <strong><h1>Task Details</h1></strong>
       </div>
@@ -43,6 +46,7 @@ const TaskDetailsPage: React.FC = () => {
           {task?.dueDate}
         </p>
         </em>
+    </div>
     </div>
     </div>
   );

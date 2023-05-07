@@ -169,9 +169,9 @@ const TaskFormFC = (props: TaskFormProps) => {
               className="inline-block h-4 w-4 align-text-bottom mr-2"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 9V5a1 1 0 112 0v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H5a1 1 0 110-2h4z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
             Add

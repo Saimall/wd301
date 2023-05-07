@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import Task from "./Task";
 import { TaskItem } from "./types";
@@ -20,7 +21,7 @@ interface Props {
 // }
 
 const TaskList = (props: Props) => {
-  const List = props.tasks.map((task, idx) => (
+  const List = props.tasks.map((task) => (
     <Task
       id={task.id}
       title={task.title}

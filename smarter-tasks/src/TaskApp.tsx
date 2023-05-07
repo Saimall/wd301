@@ -1,11 +1,11 @@
 import React from "react";
 import { TaskItem } from "./types";
-
+import Header from "./Header";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-interface TaskAppProp {}
+// interface TaskAppProp {}
 interface TaskAppState {
   tasks: TaskItem[];
 }
@@ -58,7 +58,7 @@ interface TaskAppState {
 // }
 // }
 
-const TaskApp = (props: TaskAppProp) => {
+const TaskApp = () => {
   const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>(
     "tasks",
     {
@@ -101,6 +101,8 @@ const TaskApp = (props: TaskAppProp) => {
   // },[taskAppState.tasks])
 
   return (
+    <div>
+      <Header/>
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
       <h2 className="font-bold mb-2">
@@ -122,6 +124,7 @@ const TaskApp = (props: TaskAppProp) => {
           <h1 className="text-xl font-bold mb-2">Done</h1>
         </div>
       </div>
+    </div>
     </div>
   );
 };
