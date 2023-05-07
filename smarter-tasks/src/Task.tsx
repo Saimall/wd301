@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskCard.css";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface TaskProps {
   id: number;
@@ -35,21 +35,20 @@ interface TaskProps {
 const Task = (props: TaskProps) => {
   return (
     <div>
-    <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
-  <Link to={`/tasks/${props.id}`}>
-  <h2 className="text-base font-bold my-1">{props.title}</h2>
-</Link>
-   </div>
-   <div>
+      <div className="bg-white rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
+        <Link to={`/tasks/${props.id}`}>
+          <h2 className="text-base font-bold my-1">{props.title}</h2>
+        </Link>
+      </div>
+      <div>
         <button
           className="deleteTaskButton bg-red-500 hover:bg-red-800 text-white font-bold py-1 px-2 rounded"
           onClick={() => props.deleteTask(props.id)}
         >
           Delete Task
         </button>
-        </div>
-        
-        </div>
+      </div>
+    </div>
   );
 };
 

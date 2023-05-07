@@ -11,22 +11,27 @@ import TaskDeatilesPage from "./TaskDetailesPage";
 
 import Signin from "./Signin";
 import ProtectedRoute from "./ProtectedRoute";
-import  NotFound  from "./NotFound";
+import NotFound from "./NotFound";
 
 function App() {
-  
   return (
     <div className="App">
       <header className="App-header">
         <Routes>
-          <Route path="/" element={<ProtectedRoute element = {<Homepage/>}/>}/>
-          <Route path="/tasks" element={<ProtectedRoute element = {<TaskApp/>}/>}/>
-          <Route path="/tasks/:id" element={<ProtectedRoute element = {<TaskDeatilesPage/>}/>}/>
-          <Route path="/signin" element={<Signin/>} />
-          <Route path = "*" element={<NotFound/>}/>
+          <Route path="/" element={<ProtectedRoute element={<Homepage />} />} />
+          <Route
+            path="/tasks"
+            element={<ProtectedRoute element={<TaskApp />} />}
+          />
+          <Route
+            path="/tasks/:id"
+            element={<ProtectedRoute element={<TaskDeatilesPage />} />}
+          />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-        </header>
-      </div>
+      </header>
+    </div>
   );
 }
 
