@@ -12,6 +12,8 @@ import TaskDetailsPage from "./TaskDetailsPage";
 import Signin from "./Signin";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "./NotFound";
+import { useNavigate,useLocation } from "react-router-dom";
+
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
             element={<ProtectedRoute element={<TaskDetailsPage />} />}
           />
           <Route path="/signin" element={<Signin />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<ProtectedRoute element={<NotFound />}/>} />
         </Routes>
       </header>
     </div>
