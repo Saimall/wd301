@@ -6,8 +6,8 @@ import "./App.css";
 // import TaskForm from "./TaskForm";
 import TaskApp from "./TaskApp";
 import { Routes, Route } from "react-router-dom";
-import Homepage from "./Homepage";
-import TaskDeatilesPage from "./TaskDetailesPage";
+import Homepage from "./HomePage";
+import TaskDetailsPage from "./TaskDetailsPage";
 
 import Signin from "./Signin";
 import ProtectedRoute from "./ProtectedRoute";
@@ -25,7 +25,7 @@ function App() {
           />
           <Route
             path="/tasks/:id"
-            element={<ProtectedRoute element={<TaskDeatilesPage />} />}
+            element={<ProtectedRoute element={<TaskDetailsPage />} />}
           />
           <Route path="/signin" element={<Signin />} />
           <Route path="*" element={<NotFound />} />
