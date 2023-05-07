@@ -5,14 +5,23 @@ import React from "react";
 import "./App.css";
 // import TaskForm from "./TaskForm";
 import TaskApp from "./TaskApp";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./Homepage";
+import TaskDeatilesPage from "./TaskDetailesPage";
+import Header from "./Header";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TaskApp />
-      </header>
-    </div>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Homepage/>}/>
+          <Route path="/tasks" element={<TaskApp/>}/>
+          <Route path="/tasks/:id" element={<TaskDeatilesPage/>}/>
+        </Routes>
+        </header>
+      </div>
   );
 }
 
