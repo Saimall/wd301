@@ -118,9 +118,9 @@ const TaskApp = () => {
             <h3 className="text-xl font-bold mb-2">Pending</h3>
             <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
           </div>
-          <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
+          {/* <div className="w-1/2 ml-2 rounded-lg shadow-md p-4 mb-2 status">
             <h1 className="text-xl font-bold mb-2">Done</h1>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
