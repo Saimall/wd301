@@ -30,17 +30,17 @@ const TaskDetailsPage = () => {
         </div>
         <div className="bg-black rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
           <em>
-            <h2 className="font-gray-800 mb-2">
+            <h3 className="font-gray-800 mb-2 font-solid">
               {" "}
-              <span className="font-bold">Title : </span> {task?.title}
-            </h2>
-            <p className="text-gray-800 mb-2">
+              Title :  {task?.title}
+            </h3>
+            <p className="text-gray-800 mb-2 font-solid">
               {" "}
-              <span className="font-bold">Description : </span>
+              Description : 
               {task?.description}
             </p>
-            <p className="text-gray-800 mb-2">
-              <span className="font-bold">Due On: </span>
+            <p className="text-gray-800 mb-2 font-solid">
+              Due On: 
               {task?.dueDate}
             </p>
           </em>
