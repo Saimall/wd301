@@ -19,7 +19,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {location.pathname!=="/signin" && location.pathname!=="/notfound" && <Header/>}
+        {location.pathname !== "/signin" &&
+          location.pathname !== "/notfound" && <Header />}
         <Routes>
           <Route path="/" element={<ProtectedRoute element={<Homepage />} />} />
           <Route
@@ -31,8 +32,8 @@ function App() {
             element={<ProtectedRoute element={<TaskDetailsPage />} />}
           />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/notfound" element={<NotFound/>}/>
-          <Route path="*" element={<Navigate to="/notfound"/>}/>
+          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/notfound" />} />
         </Routes>
       </header>
     </div>

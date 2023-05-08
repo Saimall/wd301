@@ -1,15 +1,13 @@
-import React from 'react';
-
+import React from "react";
 
 //React.fc has implicit child props even if your component does not alllow children typescript will not complain about it.
-const HomePage= () => {
+const HomePage = () => {
   return (
     <div>
-  
-    <div>
-      <h1>Task Manager</h1>
-      <p>Welcome to the Task Manager application!</p>
-    </div>
+      <div>
+        <h1>Task Manager</h1>
+        <p>Welcome to the Task Manager application!</p>
+      </div>
     </div>
   );
 };
