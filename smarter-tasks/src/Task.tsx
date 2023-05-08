@@ -39,14 +39,16 @@ const Task = (props: TaskProps) => {
         <Link to={`/tasks/${props.id}`}>
           <h2 className="text-base font-bold my-1">{props.title}</h2>
         </Link>
-      </div>
-      <div>
         <button
           className="deleteTaskButton bg-red-500 hover:bg-red-800 text-white font-bold py-1 px-2 rounded"
           onClick={() => props.deleteTask(props.id)}
         >
           Delete Task
         </button>
+      </div>
+      
+      <div>
+        
       </div>
     </div>
   );
