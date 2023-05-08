@@ -5,20 +5,21 @@ import React from "react";
 import "./App.css";
 // import TaskForm from "./TaskForm";
 import TaskApp from "./TaskApp";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Homepage from "./HomePage";
 import TaskDetailsPage from "./TaskDetailsPage";
 
 import Signin from "./Signin";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "./NotFound";
-// import { useNavigate,useLocation } from "react-router-dom";
-
+import Header from "./Header";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <header className="App-header">
+        {location.pathname!=="/signin" && location.pathname!=="/notfound" && <Header/>}
         <Routes>
           <Route path="/" element={<ProtectedRoute element={<Homepage />} />} />
           <Route
@@ -30,7 +31,8 @@ function App() {
             element={<ProtectedRoute element={<TaskDetailsPage />} />}
           />
           <Route path="/signin" element={<Signin />} />
-          <Route path="*" element={<ProtectedRoute element={<NotFound />}/>} />
+          <Route path="/notfound" element={<NotFound/>}/>
+          <Route path="*" element={<Navigate to="/notfound"/>}/>
         </Routes>
       </header>
     </div>

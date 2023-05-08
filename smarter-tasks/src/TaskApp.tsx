@@ -1,6 +1,5 @@
 import React from "react";
 import { TaskItem } from "./types";
-import Header from "./Header";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -102,7 +101,6 @@ const TaskApp = () => {
 
   return (
     <div>
-      <Header />
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Smarter Tasks</h1>
         <h2 className="font-bold mb-2">
