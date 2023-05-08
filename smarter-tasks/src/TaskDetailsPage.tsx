@@ -23,11 +23,6 @@ const TaskDetailsPage = () => {
     <div>
       
       <div>
-        <div className="mt-2 mb-2 font-bold-800">
-          <strong>
-            <h1>Task Details</h1>
-          </strong>
-        </div>
         <div className="bg-black rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
           <em>
             <h3 className="font-gray-800 mb-2 font-solid">
