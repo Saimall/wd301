@@ -20,11 +20,12 @@ const TaskDetailsPage = () => {
   const task = taskAppState.tasks.find((task) => task.id === Number(id)); //converting string id which we got from url to number for conversion
   /* as task and description and date may be undefined so we use task?.title , task?.date ,task?.description to specify that*/
   return (
+    //as per VTA
     <div className="bg-gray shadow-md rounded-md p-4">
-      <div className="flex justify-between items-center mb-4">
+      <div >
         <h3 className="text-lg font-mediumm" >{task?.title}</h3>
       </div>
-      <p className="text-gray-600">{task?.description}</p>
+      <p className="text-gray-600 ">{task?.description}</p>
       <p className="text-gray-600">{task?.dueDate}</p>
     </div>
     // <div>
