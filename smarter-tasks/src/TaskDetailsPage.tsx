@@ -24,21 +24,20 @@ const TaskDetailsPage = () => {
       
       <div>
         <div className="bg-black rounded-lg shadow-md p-4 mb-2 TaskItem hover:bg-gray-200">
-          <em>
-            <h3 className="font-gray-800 mb-2 font-solid">
+            <h3 className="font-gray-800 mb-2 ">
               {" "}
               Title :  {task?.title}
             </h3>
-            <p className="text-gray-800 mb-2 font-solid">
+            <p className="text-gray-800 mb-2 ">
               {" "}
               Description : 
               {task?.description}
             </p>
-            <p className="text-gray-800 mb-2 font-solid">
+            <p className="text-gray-800 mb-2 ">
               Due On: 
               {task?.dueDate}
             </p>
-          </em>
+         
         </div>
       </div>
     </div>
