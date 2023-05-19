@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
-import SignupForm from "./signup";
+import SignupForm from "./SignupForm";
 // Dialogue 1: Let's define the Signup component
 function Signup() {
   return (
