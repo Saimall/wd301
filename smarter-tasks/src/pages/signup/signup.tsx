@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm: React.FC = () => {
+  const navigate = useNavigate();//should call only at the begining!!!!!
     const [organisationName, setOrganisationName] = useState('');
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
@@ -9,6 +11,7 @@ const SignupForm: React.FC = () => {
 
 const handleSubmit = async( event: React.FormEvent<HTMLFormElement>)=>{
     event.preventDefault();
+  
     try{
         const response = await fetch(`${API_ENDPOINT}/organisations`,{
             method: 'POST',
@@ -17,8 +20,13 @@ const handleSubmit = async( event: React.FormEvent<HTMLFormElement>)=>{
         });
         const data = await response.json()
         console.log(data)
-        if(!response.ok){
+        if(!response.ok && !data.token){
             throw new Error('sign-up failed');
+        }
+        else{
+        localStorage.setItem('userData', JSON.stringify(data.user));
+        localStorage.setItem('authToken', data.token);
+        navigate("/dashboard");
         }
         console.log('signup successful');
         setOrganisationName(''); 

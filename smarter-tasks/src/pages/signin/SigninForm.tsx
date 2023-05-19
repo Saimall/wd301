@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
+import {  useNavigate } from 'react-router-dom';
 
 
 
 const SigninForm: React.FC = () => {
 
+  const navigate =useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,16 +19,20 @@ const SigninForm: React.FC = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();//used to observe the response body and find token
-      console.log(data);
-
-      if (!response.ok) {
+      console.log(data.token)//checking token
+      if (!response.ok && !data.token) {
         throw new Error('Sign-in failed');
       }
+      else{
+      localStorage.setItem('userData', JSON.stringify(data.user));
+      localStorage.setItem('authToken', data.token);
+      navigate("/dashboard");
+      }
+     
+      // navigate("/dashboard", { replace: true });
       //re-setting the state to intial after sucessfull signin
-      setEmail('');
-      setPassword('');
-
       console.log('Sign-in successful');
+     
       
       // Dialogue: After successful signin we have to redirect the user to the secured page. We will do that later.
 
