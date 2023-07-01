@@ -1,16 +1,15 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+// import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import NotFound from "./NotFound";
-import Signup from "./pages/signup";
-import Signin from "./pages/signin";
-import Dashboard from "./pages/dashboard";
-import ProtectedRoute from "./ProtectedRoute";
+
+import { RouterProvider } from "react-router-dom";
+import router from "./routes"
 
 function App() {
   return (
     <div>
-      <Routes>
+      <RouterProvider router={router} />
+      {/* <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
@@ -20,7 +19,7 @@ function App() {
           element={<ProtectedRoute element={<Dashboard />} />}
         />
         <Route path="*" element={<Navigate to="/notfound" />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }

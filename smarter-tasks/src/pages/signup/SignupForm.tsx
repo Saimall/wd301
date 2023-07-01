@@ -30,7 +30,7 @@ const SignupForm: React.FC = () => {
       } else {
         localStorage.setItem("userData", JSON.stringify(data.user));
         localStorage.setItem("authToken", data.token);
-        navigate("/dashboard");
+        navigate("/account");
       }
       console.log("signup successful");
       setOrganisationName("");
