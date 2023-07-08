@@ -8,10 +8,9 @@ import router from "./routes"
 import {ThemeContext} from "./context/theme";
 
 function App() {
-  const currentTheme = useContext(ThemeContext);
+  const CurrentTheme = useContext(ThemeContext);
   return (
-    <div>
-      {currentTheme.theme}
+    <div className={`h-screen w-full mx-auto py-2 ${CurrentTheme.theme === "dark" ? "dark" : ""}`}>
       <RouterProvider router={router} />
       {/* <Routes>
         <Route path="/" element={<Signup />} />

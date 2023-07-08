@@ -18,16 +18,6 @@ const Appbar = () => {
   const { pathname } = useLocation()
   const { theme, setTheme } = useContext(ThemeContext)
   const [enabled, setEnabled] = useState(theme === 'dark')
-  useEffect(()=>{
-    if(theme === "dark")
-    {
-      document.documentElement.classList.add("dark")
-    }else{
-      document.documentElement.classList.remove("dark")
-    }
-  },[theme])
-
-
   const toggleTheme = () => {
     let newTheme = ''
     if (theme === 'light') {

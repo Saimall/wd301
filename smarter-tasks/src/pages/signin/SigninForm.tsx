@@ -25,8 +25,6 @@ const SigninForm: React.FC = () => {
         navigate("/account");
       }
 
-      // navigate("/dashboard", { replace: true });
-      //re-setting the state to intial after sucessfull signin
       console.log("Sign-in successful");
 
       // Dialogue: After successful signin we have to redirect the user to the secured page. We will do that later.
