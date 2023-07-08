@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -34,4 +38,8 @@
 }
 :hover.deleTaskButton{
   background-color: greenyellow;
+}
+
+.dark {
+  @apply bg-slate-800 text-zinc-50;
 }
