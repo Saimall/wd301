@@ -6,12 +6,15 @@ import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes"
 import {ThemeContext} from "./context/theme";
+import { ProjectsProvider } from "./context/projects/context";
 
 function App() {
   const CurrentTheme = useContext(ThemeContext);
   return (
     <div className={`h-screen w-full mx-auto py-2 ${CurrentTheme.theme === "dark" ? "dark" : ""}`}>
+       <ProjectsProvider>
       <RouterProvider router={router} />
+      </ProjectsProvider>
       {/* <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/signup" element={<Signup />} />

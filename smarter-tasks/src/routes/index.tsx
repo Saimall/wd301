@@ -4,7 +4,6 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import Signin from "../pages/signin"
 import Signup from "../pages/signup"
 import NotFound from "../NotFound";
-import Dashboard from "../pages/dashboard";
 import AccountLayout from "../layouts/account";
 import ProtectedRoute from "./ProtectedRoute";
 import Projects from "../pages/projects"
@@ -29,10 +28,7 @@ const router = createBrowserRouter([
     path:"/notfound",
     element:<NotFound/>
   },
-  {
-    path:"/dashboard",
-    element:<Dashboard/>
-  },
+ 
     // Protected Routes
     {
         path: "/account",
