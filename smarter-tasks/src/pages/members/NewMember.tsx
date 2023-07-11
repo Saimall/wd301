@@ -32,7 +32,7 @@ const NewMember = () => {
   }
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const {name,email,password } = data
+    const {name,email,password} = data
    
     const response = await addMember(dispatchMembers,{name,email,password })
 

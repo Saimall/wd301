@@ -11,7 +11,7 @@ export default function MemberListItems() {
   const state: any = useMembersState();
 
   const { members, isLoading, isError, errorMessage } = state;
-  console.log(members);
+
   if (members.length === 0 && isLoading) {
     return <span>Loading...</span>;
   }
