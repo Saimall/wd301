@@ -3,18 +3,21 @@ import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Inputs = {
-name: string,
- user_name:string,
- email:string,
- password:string
+  name: string;
+  user_name: string;
+  email: string;
+  password: string;
 };
 const SignupForm: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-
-  const navigate = useNavigate(); //should call only at the begining!!!!
+  const navigate = useNavigate();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const {name,user_name,email,password}=data
+    const { name, user_name, email, password } = data;
 
     try {
       const response = await fetch(`${API_ENDPOINT}/organisations`, {
@@ -37,7 +40,6 @@ const SignupForm: React.FC = () => {
         navigate("/account");
       }
       console.log("signup successful");
-      
     } catch (error) {
       console.error("Sign-up failed:", error);
     }
@@ -52,7 +54,8 @@ const SignupForm: React.FC = () => {
         <input
           type="text"
           id="organisationName"
-          {...register('name', { required: true })} autoFocus
+          {...register("name", { required: true })}
+          autoFocus
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         />
       </div>
@@ -64,9 +67,10 @@ const SignupForm: React.FC = () => {
         <input
           type="text"
           id="userName"
-          {...register('user_name', { required: true })} autoFocus
+          {...register("user_name", { required: true })}
+          autoFocus
           className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-            errors.name ? 'border-red-500' : ''
+            errors.name ? "border-red-500" : ""
           }`}
         />
       </div>
@@ -76,9 +80,10 @@ const SignupForm: React.FC = () => {
         <input
           type="email"
           id="userEmail"
-          {...register('email', { required: true })} autoFocus
+          {...register("email", { required: true })}
+          autoFocus
           className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-            errors.name ? 'border-red-500' : ''
+            errors.name ? "border-red-500" : ""
           }`}
         />
       </div>
@@ -90,9 +95,10 @@ const SignupForm: React.FC = () => {
         <input
           type="password"
           id="userPassword"
-          {...register('password', { required: true, })} autoFocus
+          {...register("password", { required: true })}
+          autoFocus
           className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-            errors.name ? 'border-red-500' : ''
+            errors.name ? "border-red-500" : ""
           }`}
         />
       </div>

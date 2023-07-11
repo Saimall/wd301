@@ -3,15 +3,18 @@ import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Inputs = {
-  email: string,
-  password:string
+  email: string;
+  password: string;
 };
 const SigninForm: React.FC = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    
-    const { email,password } = data
+    const { email, password } = data;
 
     try {
       const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
@@ -43,10 +46,12 @@ const SigninForm: React.FC = () => {
         <input
           type="email"
           id="email"
-          {...register('email', { required: true })} autoFocus
+          {...register("email", { required: true })}
+          autoFocus
           className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-            errors.email ? 'border-red-500' : ''
-          }`}  />
+            errors.email ? "border-red-500" : ""
+          }`}
+        />
       </div>
       {errors.email && <span>This field is required!!!</span>}
       <div>
@@ -56,9 +61,10 @@ const SigninForm: React.FC = () => {
         <input
           type="password"
           id="password"
-          {...register('password', { required: true })} autoFocus
+          {...register("password", { required: true })}
+          autoFocus
           className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-            errors.password ? 'border-red-500' : ''
+            errors.password ? "border-red-500" : ""
           }`}
         />
         {errors.password && <span>This field is required</span>}

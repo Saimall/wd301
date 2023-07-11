@@ -1,48 +1,52 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 // import { API_ENDPOINT } from '../../config/constants';
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { addMember } from '../../context/members/actions';
+import { addMember } from "../../context/members/actions";
 
-import { useMembersDispatch } from "../../context/members/context"
+import { useMembersDispatch } from "../../context/members/context";
 
 type Inputs = {
-  name: string
-  email:string
-  password:string
+  name: string;
+  email: string;
+  password: string;
 };
 
-
 const NewMember = () => {
-
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(null);
-  const dispatchMembers = useMembersDispatch()
+  const dispatchMembers = useMembersDispatch();
   // const [name, setName] = useState('');
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
-// Then we add the closeModal function
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const {name,email,password} = data
-   
-    const response = await addMember(dispatchMembers,{name,email,password })
+    const { name, email, password } = data;
 
-    // Then depending on response, I'll either close the modal...
+    const response = await addMember(dispatchMembers, {
+      name,
+      email,
+      password,
+    });
+
     if (response.ok) {
-      setIsOpen(false)
+      setIsOpen(false);
     } else {
-      setError(response.error as React.SetStateAction<null>)
+      setError(response.error as React.SetStateAction<null>);
     }
-  }
+  };
 
   return (
     <>
@@ -79,6 +83,7 @@ const NewMember = () => {
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
+                    id="new-member-btn"
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
@@ -87,43 +92,49 @@ const NewMember = () => {
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       {/* I'll show the error, if it exists.*/}
-                      {error &&
-                        <span>{error}</span>
-                      }
+                      {error && <span>{error}</span>}
                       <input
                         type="text"
-                        placeholder='Enter user name...'
+                        placeholder="Enter user name..."
                         autoFocus
-                        {...register('name', { required: true })}
+                        {...register("name", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-                          errors.name ? 'border-red-500' : ''
+                          errors.name ? "border-red-500" : ""
                         }`}
                       />
-                       {errors.name && <span>This field is required</span>}
+                      {errors.name && <span>This field is required</span>}
                       <input
                         type="email"
-                        placeholder='Enter user email...'
+                        placeholder="Enter user email..."
                         autoFocus
-                        {...register('email', { required: true })}
+                        {...register("email", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-                          errors.email ? 'border-red-500' : ''
+                          errors.email ? "border-red-500" : ""
                         }`}
                       />
                       {errors.email && <span>This field is required</span>}
                       <input
                         type="text"
-                        placeholder='Enter user password...'
+                        placeholder="Enter user password..."
                         autoFocus
-                        {...register('password', { required: true })}
+                        {...register("password", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
-                          errors.password ? 'border-red-500' : ''
+                          errors.password ? "border-red-500" : ""
                         }`}
                       />
                       {errors.password && <span>This field is required</span>}
-                      <button type="submit" className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                      <button
+                        type="submit"
+                        id="create-member-btn"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      >
                         Submit
                       </button>
-                      <button type="submit" onClick={closeModal} className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                      <button
+                        type="submit"
+                        onClick={closeModal}
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      >
                         Cancel
                       </button>
                     </form>
@@ -133,8 +144,8 @@ const NewMember = () => {
             </div>
           </div>
         </Dialog>
-      </Transition>    
+      </Transition>
     </>
-  )
-}
-    export default NewMember;
+  );
+};
+export default NewMember;
