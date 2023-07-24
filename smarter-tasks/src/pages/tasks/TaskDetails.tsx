@@ -8,7 +8,10 @@ import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
 import { updateTask } from "../../context/task/actions";
-
+import { useCommentsDispatch } from "../../context/comment/context";
+import { getComments } from "../../context/comment/actions";
+import CommentList from "./CommentList";
+import NewComment from "./NewComment";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
@@ -17,8 +20,11 @@ type TaskFormUpdatePayload = TaskDetailsPayload & {
     selectedPerson: string;
   };
  
+
+
+  
 // Helper function to format the date to YYYY-MM-DD format
-const formatDateForPicker = (isoDate: string) => {
+const Date_Format_Picker = (isoDate: string) => {
 
   const dateObj = new Date(isoDate);
   const year = dateObj.getFullYear();
@@ -32,7 +38,7 @@ const formatDateForPicker = (isoDate: string) => {
 const TaskDetails = () => {
 const memberState = useMembersState();
   let [isOpen, setIsOpen] = useState(true);
-
+  const commentDispatch = useCommentsDispatch();
   let { projectID, taskID } = useParams();
   let navigate = useNavigate();
 
@@ -60,7 +66,7 @@ const memberState = useMembersState();
       title: selectedTask.title,
       description: selectedTask.description,
       selectedPerson: selectedTask.assignedUserName,
-      dueDate: formatDateForPicker(selectedTask.dueDate),
+      dueDate: Date_Format_Picker(selectedTask.dueDate),
     },
   });
 
@@ -208,6 +214,9 @@ const memberState = useMembersState();
                       </button>
                     </form>
                   </div>
+                  
+                  <NewComment />
+                  <CommentList />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

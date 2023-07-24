@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API_ENDPOINT } from "../../config/constants";
+import { CommentsDispatch } from "./types";
 
-export const getcomments = async (
-  dispatch: any,
+
+export const getComments = async (
+  dispatch: CommentsDispatch,
   projectID: string,
   taskID: string
 ) => {
@@ -32,7 +34,7 @@ export const getcomments = async (
 };
 
 export const addComment = async (
-  dispatch: any,
+  dispatch: CommentsDispatch,
   projectID: string,
   taskID: string,
   comment: string
@@ -61,7 +63,7 @@ export const addComment = async (
 
     dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data });
 
-    getcomments(dispatch, projectID, taskID);
+    getComments(dispatch, projectID, taskID);
 
     return { ok: true };
   } catch (error) {

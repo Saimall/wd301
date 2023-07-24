@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TaskDetails } from "./types";
 import { API_ENDPOINT } from "../../config/constants";
 import {
@@ -11,7 +12,7 @@ export const reorderTasks = (dispatch: TasksDispatch, newState: ProjectData)  =>
 }
 
 export const refreshTasks = async (
-  dispatch: TasksDispatch,
+  dispatch: any,
   projectID: string
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
