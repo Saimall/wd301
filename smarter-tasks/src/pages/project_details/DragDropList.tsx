@@ -12,9 +12,7 @@ const Container = (props: React.PropsWithChildren) => {
   return <div className="flex">{props.children}</div>;
 };
 
-const DragDropList = (props: {
-  data: ProjectData
-}) => {
+const DragDropList = (props: { data: ProjectData }) => {
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const onDragEnd: OnDragEndResponder = (result) => {
@@ -72,7 +70,7 @@ const DragDropList = (props: {
       taskIDs: finishTaskIDs,
     };
 
-    // Create new state with newStart and newFinish 
+    // Create new state with newStart and newFinish
     const newState = {
       ...props.data,
       columns: {
@@ -100,5 +98,5 @@ const DragDropList = (props: {
       </Container>
     </DragDropContext>
   );
-}
+};
 export default DragDropList;

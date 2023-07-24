@@ -9,9 +9,9 @@ const ProjectDetailsIndex: React.FC = () => {
   return (
     <>
       <TasksProvider>
-      <ProjectDetails />
-      <Outlet />
-    </TasksProvider>
+        <ProjectDetails />
+        <Outlet />
+      </TasksProvider>
     </>
   );
 };

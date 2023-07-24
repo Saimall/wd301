@@ -7,7 +7,6 @@ const TasksDispatchContext = createContext<TasksDispatch>(() => {});
 export const TasksProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  
   const [state, dispatch] = useReducer(taskReducer, initialState);
   return (
     <TasksStateContext.Provider value={state}>
@@ -17,7 +16,6 @@ export const TasksProvider: React.FC<React.PropsWithChildren> = ({
     </TasksStateContext.Provider>
   );
 };
-
 
 export const useTasksState = () => useContext(TasksStateContext);
 export const useTasksDispatch = () => useContext(TasksDispatchContext);

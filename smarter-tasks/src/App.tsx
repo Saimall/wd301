@@ -8,7 +8,7 @@ import router from "./routes";
 import { ThemeContext } from "./context/theme";
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
-import {CommentsProvider} from "./context/comment/context"
+import { CommentsProvider } from "./context/comment/context";
 function App() {
   const CurrentTheme = useContext(ThemeContext);
   return (
@@ -20,7 +20,7 @@ function App() {
       <ProjectsProvider>
         <MembersProvider>
           <CommentsProvider>
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
           </CommentsProvider>
         </MembersProvider>
       </ProjectsProvider>

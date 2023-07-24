@@ -106,7 +106,7 @@ const NewMember = () => {
                       />
                       {errors.name && <span>This field is required</span>}
                       <input
-                      id="email"
+                        id="email"
                         type="email"
                         placeholder="Enter user email..."
                         autoFocus

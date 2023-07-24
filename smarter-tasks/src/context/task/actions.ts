@@ -7,14 +7,14 @@ import {
   TaskListAvailableAction,
   TasksDispatch,
 } from "./types";
-export const reorderTasks = (dispatch: TasksDispatch, newState: ProjectData)  => {
-  dispatch({type: TaskListAvailableAction.REORDER_TASKS, payload: newState})
-}
-
-export const refreshTasks = async (
-  dispatch: any,
-  projectID: string
+export const reorderTasks = (
+  dispatch: TasksDispatch,
+  newState: ProjectData
 ) => {
+  dispatch({ type: TaskListAvailableAction.REORDER_TASKS, payload: newState });
+};
+
+export const refreshTasks = async (dispatch: any, projectID: string) => {
   const token = localStorage.getItem("authToken") ?? "";
   try {
     dispatch({ type: TaskListAvailableAction.FETCH_TASKS_REQUEST });
@@ -48,9 +48,6 @@ export const refreshTasks = async (
   }
 };
 
-
-
-
 export const addTask = async (
   dispatch: TasksDispatch,
   projectID: string,
@@ -58,10 +55,8 @@ export const addTask = async (
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
   try {
-  
     dispatch({ type: TaskListAvailableAction.CREATE_TASK_REQUEST });
 
-    
     const response = await fetch(
       `${API_ENDPOINT}/projects/${projectID}/tasks/`,
       {
@@ -123,7 +118,6 @@ export const deleteTask = async (
     });
   }
 };
-
 
 export const updateTask = async (
   dispatch: TasksDispatch,

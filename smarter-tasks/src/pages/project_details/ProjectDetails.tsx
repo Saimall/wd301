@@ -3,10 +3,9 @@
 // ?. optional chaining used to safely access the array and prevent from throwing the error if the confdition fails
 //?.[0]: After filtering, the optional chaining is used again to safely access the first element of the filtered array. The [0] index is used to get the first element of the array, if it exists.
 
-
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import DragDropList from "./DragDropList";
-import {Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useProjectsState } from "../../context/projects/context";
 
 import { refreshTasks } from "../../context/task/actions";

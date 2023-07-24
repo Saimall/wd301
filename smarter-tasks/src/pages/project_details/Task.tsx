@@ -1,8 +1,7 @@
 /* eslint-disable react/display-name */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React,{ forwardRef } from "react";
-
+import React, { forwardRef } from "react";
 
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
 import { TaskDetails } from "../../context/task/types";
@@ -10,29 +9,31 @@ import { deleteTask } from "../../context/task/actions";
 import "./TaskCard.css";
 import { Link, useParams } from "react-router-dom";
 import { Draggable } from "react-beautiful-dnd";
-const Task=forwardRef<
-HTMLDivElement,
-React.PropsWithChildren<{ task: TaskDetails }>
->((props,ref) => {
+const Task = forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<{ task: TaskDetails }>
+>((props, ref) => {
   const { task } = props;
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   return (
-    <div  ref={ref} {...props} className="m-2 flex">
+    <div ref={ref} {...props} className="m-2 flex">
       <Link
         className="TaskItem w-full shadow-md border border-slate-100 bg-white"
         to={`tasks/${task.id}`}
       >
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
           <div>
-          <h2 className="text-base font-bold my-1">{task.title}</h2>
-  <p className="text-sm text-slate-500">
-    {new Date(task.dueDate).toDateString()}
-  </p>
-  <p className="text-sm text-slate-500">Description: {task.description}</p>
-  <p className="text-sm text-slate-500">
-    Assignee: {task.assignedUserName ?? "-"}
-  </p>
+            <h2 className="text-base font-bold my-1">{task.title}</h2>
+            <p className="text-sm text-slate-500">
+              {new Date(task.dueDate).toDateString()}
+            </p>
+            <p className="text-sm text-slate-500">
+              Description: {task.description}
+            </p>
+            <p className="text-sm text-slate-500">
+              Assignee: {task.assignedUserName ?? "-"}
+            </p>
           </div>
           <button
             className="deleteTaskButton cursor-pointer h-4 w-4 rounded-full my-5 mr-5"
@@ -58,14 +59,10 @@ React.PropsWithChildren<{ task: TaskDetails }>
           </button>
         </div>
       </Link>
-      <div>
- 
-</div>
+      <div></div>
     </div>
-
-    
   );
-})
+});
 
 const Container = (
   props: React.PropsWithChildren<{
@@ -75,13 +72,16 @@ const Container = (
 ) => {
   return (
     <>
-    <Draggable index={props.index} draggableId={`${props.task.id}`}>
-      {(provided) =>( <Task task={props.task}
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps} />
-          )}
-    </Draggable>
+      <Draggable index={props.index} draggableId={`${props.task.id}`}>
+        {(provided) => (
+          <Task
+            task={props.task}
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+          />
+        )}
+      </Draggable>
     </>
   );
 };

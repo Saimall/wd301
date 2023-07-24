@@ -7,8 +7,6 @@ export const initialState: CommentsState = {
   errorMessage: "",
 };
 
-
-
 export const reducer = (
   state: CommentsState = initialState,
   action: CommentsActions
