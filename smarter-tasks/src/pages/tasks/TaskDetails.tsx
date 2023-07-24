@@ -51,6 +51,10 @@ const memberState = useMembersState();
     (project) => `${project.id}` === projectID
   )[0];
 
+  useEffect(() => {
+    getComments(commentDispatch, `${projectID}`, `${taskID}`);
+  }, [taskID, projectID, commentDispatch]);
+
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
 
   const [selectedPerson, setSelectedPerson] = useState(
@@ -78,9 +82,12 @@ const memberState = useMembersState();
     setIsOpen(false);
     navigate("../../");
   }
+  
 
   const onSubmit: SubmitHandler<TaskFormUpdatePayload> = async (data) => {
     
+ 
+
     const assignee = memberState?.members?.filter(
         (member) => member.name === selectedPerson
       )?.[0];

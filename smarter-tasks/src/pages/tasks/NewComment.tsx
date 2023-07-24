@@ -17,7 +17,7 @@ const NewComment = () => {
   const { projectID, taskID } = useParams();
   const commentDispatch = useCommentsDispatch();
   const onSubmit: SubmitHandler<CommentsPayload> = async (data) => {
-    console.log("comment", data.description);
+  
     try {
       await addComment(
         commentDispatch,

@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API_ENDPOINT } from "../../config/constants";
-import { CommentsDispatch } from "./types";
-
 
 export const getComments = async (
-  dispatch: CommentsDispatch,
+  dispatch: any,
   projectID: string,
   taskID: string
 ) => {
@@ -34,7 +32,7 @@ export const getComments = async (
 };
 
 export const addComment = async (
-  dispatch: CommentsDispatch,
+  dispatch: any,
   projectID: string,
   taskID: string,
   comment: string
@@ -54,7 +52,7 @@ export const addComment = async (
       }
     );
     if (!response.ok) {
-      throw new Error("Failed to add comment");
+      throw new Error("Failed to create comment");
     }
     const data = await response.json();
     if (data.errors && data.errors.length > 0) {
@@ -67,7 +65,6 @@ export const addComment = async (
 
     return { ok: true };
   } catch (error) {
-    console.error("operation got disturbed", error);
     return { ok: false, error };
   }
 };

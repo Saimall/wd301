@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-import { getComments } from "../../context/comment/actions";
+import {  getComments } from "../../context/comment/actions";
 import {
   useCommentsDispatch,
   useCommentsState,
@@ -17,7 +17,7 @@ const CommentList = () => {
   const memberState = useMembersState();
 
   const { comments, isLoading, isError, errorMessage } = commentState;
-
+   console.log(comments)
   const getusername = (userid: number) => {
     const username = memberState?.members?.filter(
       (member) => member.id === userid
