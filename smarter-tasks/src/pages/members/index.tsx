@@ -18,7 +18,6 @@ const Members = () => {
           <MemberList />
         </Suspense>
       </ErrorBoundary>
-      <MemberList />
     </>
   );
 };
